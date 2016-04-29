@@ -1,28 +1,31 @@
-== README
+== Highlighting Assignment
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Modify a simple Rails app to provide an end user (i.e. student) with the ability to select and “highlight” any aspects of the content provided.  This is analogous to traditional marker highlighting in a school text book.  In terms of the content, we have provided two data sets: (1) simple and clean (2) complex and untidy.
 
-Things you may want to cover:
+In any of the data sets, all the highlighted elements should be stored to the database.  Upon returning to the page, the highlighted areas should appear in the correct location.  The user should have the ability to pick any combination of words for highlighting.  Partial highlighting, whereby only portions of a word is selected, (i.e. "foo" in foobar) should not be permitted.
 
-* Ruby version
+Dependencies
+============
 
-* System dependencies
+If you are using OSX, use [homebrew](http://brew.sh/).
+On linux, use the appropriate package manager.
 
-* Configuration
+- Ruby >= 2.1.6 and bundler - Preferably you should use a version manager like [rvm](https://rvm.io/), or [rbenv](https://github.com/rbenv/rbenv)
+```bash
+brew install rvm
+rvm install 2.1.6
+gem install bundler
+```
 
-* Database creation
+Environment Setup
+=================
 
-* Database initialization
+```bash
+# install ruby deps
+bundle install
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+# create db, establish schema, and populate the seed data
+rake db:migrate
+rake db:seed
+rake db:test:load
+```
