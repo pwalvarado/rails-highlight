@@ -1,5 +1,6 @@
 <% @pages.each do |page| %>
-  <div>
+  <h2><%= page.name %></h2>
+  <div id="<%= page.id %>">
     <%= page.content.html_safe %>
   </div>
 <% end %>

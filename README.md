@@ -1,4 +1,5 @@
-== Highlighting Assignment
+Highlighting Assignment
+=======================
 
 Modify a simple Rails app to provide an end user (i.e. student) with the ability to select and “highlight” any aspects of the content provided.  This is analogous to traditional marker highlighting in a school text book.  In terms of the content, we have provided two data sets: (1) simple and clean (2) complex and untidy.
 
@@ -29,3 +30,5 @@ rake db:migrate
 rake db:seed
 rake db:test:load
 ```
+
+Load the app by running `rails server` on the command line and visiting `localhost:3000` in your browser.

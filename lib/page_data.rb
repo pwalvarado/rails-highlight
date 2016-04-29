@@ -4,8 +4,8 @@ class PageData
     dirty_html = PageData.dirty_page()
     clean_html = PageData.clean_page()
 
-    Page.create(content: dirty_html)
-    Page.create(content: clean_html)
+    Page.create(content: dirty_html, name: "Dirty Page")
+    Page.create(content: clean_html, name: "Clean Page")
   end
 
   def self.dirty_page
@@ -91,90 +91,90 @@ class PageData
 
   def self.clean_page
     '<p>How much a dollar really cost?
-    <br>The question is detrimental, paralyzin\' my thoughts
-    <br>Parasites in my stomach keep me with a gut feeling, y\'all
-    <br>Gotta see how I\'m chillin\' once I park this luxury car
-    <br>Hopping out feeling big as Mutombo
-    <br>20 on pump 6, dirty Marcellus called me Dumbo
-    <br>20 years ago, can\'t forget
-    <br>Now I can lend all my ear or two how to stack these residuals
-    <br>Tenfold, the liberal concept of what men\'ll do
-    <br>20 on 6, he didn\'t hear me
-    <br>Indigenous African only spoke Zulu
-    <br>My American tongue was slurry
-    <br>Walked out the gas station
-    <br>A homeless man with a semi-tan complexion
-    <br>Asked me for 10 Rand [approx $1 USD], stressin\' about dry land
-    <br>Deep water, powder blue skies that crack open
-    <br>A piece of crack that he wanted, I knew he was smokin\'
-    <br>He begged and pleaded
-    <br>Asked me to feed him twice, I didn\'t believe it
-    <br>Told him, "Beat it"
-    <br>Contributin\' money just for his pipe, I couldn\'t see it
-    <br>He said, "My son, temptation is one thing that I\'ve defeated
-    <br>Listen to me, I want a single bill from you
-    <br>Nothin\' less, nothin\' more"
-    <br>I told him I ain\'t have it and closed my door
-    <br>Tell me how much a dollar cost</p>
+    The question is detrimental, paralyzin\' my thoughts
+    Parasites in my stomach keep me with a gut feeling, y\'all
+    Gotta see how I\'m chillin\' once I park this luxury car
+    Hopping out feeling big as Mutombo
+    20 on pump 6, dirty Marcellus called me Dumbo
+    20 years ago, can\'t forget
+    Now I can lend all my ear or two how to stack these residuals
+    Tenfold, the liberal concept of what men\'ll do
+    20 on 6, he didn\'t hear me
+    Indigenous African only spoke Zulu
+    My American tongue was slurry
+    Walked out the gas station
+    A homeless man with a semi-tan complexion
+    Asked me for 10 Rand [approx $1 USD], stressin\' about dry land
+    Deep water, powder blue skies that crack open
+    A piece of crack that he wanted, I knew he was smokin\'
+    He begged and pleaded
+    Asked me to feed him twice, I didn\'t believe it
+    Told him, "Beat it"
+    Contributin\' money just for his pipe, I couldn\'t see it
+    He said, "My son, temptation is one thing that I\'ve defeated
+    Listen to me, I want a single bill from you
+    Nothin\' less, nothin\' more"
+    I told him I ain\'t have it and closed my door
+    Tell me how much a dollar cost</p>
 
-    <em>Chorus: <br>(James Fauntleroy)</em>
-      <br>It\'s more to feed your mind
-      <br>Water, sun and love, the one you love
-      <br>All you need, the air you breathe
+    <em>Chorus: (James Fauntleroy)</em>
+      It\'s more to feed your mind
+      Water, sun and love, the one you love
+      All you need, the air you breathe
 
     <p>
-      <br>He\'s starin\' at me in disbelief
-      <br>My temper is buildin\', he\'s starin\' at me, I grab my key
-      <br>He\'s starin\' at me, I started the car, then I tried to leave
-      <br>And somethin\' told me to keep it in park until I could see
-      <br>The reason why he was mad at a stranger
-      <br>Like I was supposed to save him
-      <br>Like I\'m the reason he\'s homeless and askin\' me for a favor
-      <br>He\'s starin\' at me, his eyes followed me with no laser
-      <br>He\'s starin\' at me, I notice that his stare is contagious
-      <br>Cause now I\'m starin\' back at him, feelin\' some type of disrespect
-      <br>If I could throw a bat at him, it\'d be aimin\' at his neck
-      <br>I never understood someone beggin\' for goods
-      <br>Askin\' for handouts, takin\' it if they could
-      <br>And this particular person just had it down pat
-      <br>Starin\' at me for the longest until he finally asked
-      <br>Have you ever opened up Exodus 14?
-      <br>A humble man is all that we ever need
-      <br>Tell me how much a dollar cost</p>
+      He\'s starin\' at me in disbelief
+      My temper is buildin\', he\'s starin\' at me, I grab my key
+      He\'s starin\' at me, I started the car, then I tried to leave
+      And somethin\' told me to keep it in park until I could see
+      The reason why he was mad at a stranger
+      Like I was supposed to save him
+      Like I\'m the reason he\'s homeless and askin\' me for a favor
+      He\'s starin\' at me, his eyes followed me with no laser
+      He\'s starin\' at me, I notice that his stare is contagious
+      Cause now I\'m starin\' back at him, feelin\' some type of disrespect
+      If I could throw a bat at him, it\'d be aimin\' at his neck
+      I never understood someone beggin\' for goods
+      Askin\' for handouts, takin\' it if they could
+      And this particular person just had it down pat
+      Starin\' at me for the longest until he finally asked
+      Have you ever opened up Exodus 14?
+      A humble man is all that we ever need
+      Tell me how much a dollar cost</p>
 
     <em>Chorus</em>
 
     <p>Guilt trippin\' and feelin\' resentment
-      <br>I never met a transient that demanded attention
-      <br>They got me frustrated, indecisive and power trippin\'
-      <br>Sour emotions got me lookin\' at the universe different
-      <br>I should distance myself, I should keep it relentless
-      <br>My selfishness is what got me here, who the **** I\'m kiddin\'?
-      <br>So I\'mma tell you like I told the last bum
-      <br>Crumbs and pennies, I need all of mines
-      <br>And I recognize this type of panhandlin\' all the time
-      <br>I got better judgement, I know when *****\'s hustlin\', keep in mind
-      <br>When I was strugglin\', I did compromise, now I comprehend
-      <br>I smell grandpa\'s old medicine, reekin\' from your skin
-      <br>Moonshine and gin, ***** you\'re babblin\', your words ain\'t flatterin\'
-      <br>I\'m imaginin\' Denzel but lookin\' at O\'Neal
-      <br>Kazaam is sad thrills, your gimmick is mediocre
-      <br>The jig is up, I seen you from a mile away losin\' focus
-      <br>And I\'m insensitive, and I lack empathy
-      <br>He looked at me and said, "Your potential is bittersweet"
-      <br>I looked at him and said, "Every nickel is mines to keep"
-      <br>He looked at me and said, "Know the truth, it\'ll set you free
-      <br>You\'re lookin\' at the Messiah, the son of Jehovah, the higher power
-      <br>The choir that spoke the word, the Holy Spirit
-      <br>The nerve of Nazareth, and I\'ll tell you just how much a dollar cost
-      <br>The price of having a spot in Heaven, embrace your loss, I am God"</p>
+      I never met a transient that demanded attention
+      They got me frustrated, indecisive and power trippin\'
+      Sour emotions got me lookin\' at the universe different
+      I should distance myself, I should keep it relentless
+      My selfishness is what got me here, who the **** I\'m kiddin\'?
+      So I\'mma tell you like I told the last bum
+      Crumbs and pennies, I need all of mines
+      And I recognize this type of panhandlin\' all the time
+      I got better judgement, I know when *****\'s hustlin\', keep in mind
+      When I was strugglin\', I did compromise, now I comprehend
+      I smell grandpa\'s old medicine, reekin\' from your skin
+      Moonshine and gin, ***** you\'re babblin\', your words ain\'t flatterin\'
+      I\'m imaginin\' Denzel but lookin\' at O\'Neal
+      Kazaam is sad thrills, your gimmick is mediocre
+      The jig is up, I seen you from a mile away losin\' focus
+      And I\'m insensitive, and I lack empathy
+      He looked at me and said, "Your potential is bittersweet"
+      I looked at him and said, "Every nickel is mines to keep"
+      He looked at me and said, "Know the truth, it\'ll set you free
+      You\'re lookin\' at the Messiah, the son of Jehovah, the higher power
+      The choir that spoke the word, the Holy Spirit
+      The nerve of Nazareth, and I\'ll tell you just how much a dollar cost
+      The price of having a spot in Heaven, embrace your loss, I am God"</p>
 
     <em>Ronald Isley:</em>
     <p>I wash my hands, I said my grace
-    <br>What more do you want from me?
-    <br>Tears of a clown, guess I\'m not all what is meant to be
-    <br>Shades of grey will never change if I condone
-    <br>Turn this page, help me change, so right my wrongs</p>'
+    What more do you want from me?
+    Tears of a clown, guess I\'m not all what is meant to be
+    Shades of grey will never change if I condone
+    Turn this page, help me change, so right my wrongs</p>'
   end
 
 end
