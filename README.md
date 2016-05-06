@@ -5,6 +5,10 @@ Modify a simple Rails app to provide an end user (i.e. student) with the ability
 
 In any of the data sets, all the highlighted elements should be stored to the database.  Upon returning to the page, the highlighted areas should appear in the correct location.  The user should have the ability to pick any combination of words for highlighting.  Partial highlighting, whereby only portions of a word is selected, (i.e. "foo" in foobar) should not be permitted.
 
+For this assignment the data should be stored in a way that allows for potential new users to create their own sets of highlights and not affect other user's highlights.
+
+Please contact Roger(rblancarte@panopen.com) or Phil(pnorfleet@panopen.com) if you have any questions.
+
 Dependencies
 ============
 
