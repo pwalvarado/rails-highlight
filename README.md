@@ -7,7 +7,7 @@ In any of the data sets, all the highlighted elements should be stored to the da
 
 For this assignment the data should be stored in a way that allows for potential new users to create their own sets of highlights and not affect other user's highlights.
 
-Please contact Roger(rblancarte@panopen.com) or Phil(pnorfleet@panopen.com) if you have any questions.
+Please contact Roger(rblancarte@panopen.com) if you have any questions.
 
 Dependencies
 ============
