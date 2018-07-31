@@ -1,6 +1,29 @@
-<% @pages.each do |page| %>
-  <h2><%= page.name %></h2>
-  <div id="<%= page.id %>">
-    <%= page.content.html_safe %>
+<header>
+<!-- Fixed navbar -->
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a href="#" class="btn btn-default"><i class="fas fa-highlighter"></i> hightlighter</a>
+      </li>
+    </ul>
+    <form class="form-inline mt-2 mt-md-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
   </div>
-<% end %>
+</nav>
+</header>
+
+<!-- Begin page content -->
+<main role="main" class="container">
+  <% @pages.each do |page| %>
+    <div class="page">
+      <h2><%= page.name %></h2>
+
+      <div id="<%= page.id %>">
+        <%= page.content.html_safe %>
+      </div>
+    </div>
+  <% end %>
+</main>

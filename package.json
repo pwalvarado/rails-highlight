@@ -6,6 +6,7 @@
     "popper.js": "^1.14.3"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.2.0",
     "webpack-dev-server": "2.11.2"
   }
 }
