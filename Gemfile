@@ -45,3 +45,4 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'webpacker', '~> 3.5'
