@@ -46,3 +46,4 @@ group :development, :test do
 end
 
 gem 'webpacker', '~> 3.5'
+gem 'faker'
