@@ -15,19 +15,35 @@ import 'texthighlighterjs/build/TextHighlighter.min';
 $(document).ready(function() {
     // console.log('Hello world!')
 
-    var hltr = {};
+    var hltr = {}, serialized = {};
+
 
     // When user is selected, retrieve and show highlights, and allow do new highlights
     $('#select-user').on('change', function () {
         var user_id = $('#select-user').val();
-        console.log("selected user_id", user_id)
 
-        // set highlights for each book.
+        // console.log("selected user_id", user_id)
+
+        // set highlighter for each book and bind related event handlers
         $('.text-book').each(function() {
             var textbook = $(this);
+
+            // set highlights object for each book.
             hltr[textbook.attr('id')] = new TextHighlighter(textbook[0]);
+
+            // bind handler for hightligher, for getting and saving the text-book highlights
+            $("body").mouseup(function() {
+
+                // get serialized highlights
+                serialized[textbook.attr('id')] = hltr[textbook.attr('id')].serializeHighlights();
+
+                // TODO post serialized text
+
+                // console.log( "Handler for .mouseup() called." + serialized[textbook.attr('id')] );
+            });
         });
-        // console.log('hltr 1 ---------', hltr[1]);
+
+        // console.log('hltr for text-book 1 ---------', hltr[1]);
 
         // getting user highlights
         $.getJSON("/users/" + user_id + "/highlights.json", function(data) {
