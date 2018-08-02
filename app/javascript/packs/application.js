@@ -9,15 +9,25 @@
 
 import 'stylesheets/application'
 import 'bootstrap/dist/js/bootstrap';
+import 'texthighlighterjs/build/TextHighlighter.min';
 // console.log('Hello World from Webpacker')
 
 $(document).ready(function() {
     // console.log('Hello world!')
 
+    var hltr = {};
+
     // When user is selected, retrieve and show highlights, and allow do new highlights
     $('#select-user').on('change', function () {
         var user_id = $('#select-user').val();
         console.log("selected user_id", user_id)
+
+        // set highlights for each book.
+        $('.text-book').each(function() {
+            var textbook = $(this);
+            hltr[textbook.attr('id')] = new TextHighlighter(textbook[0]);
+        });
+        // console.log('hltr 1 ---------', hltr[1]);
 
         // getting user highlights
         $.getJSON("/users/" + user_id + "/highlights.json", function(data) {
@@ -30,7 +40,7 @@ $(document).ready(function() {
                     console.log('no highlights were found')
                 } else {
 
-                    // TODO show highlights and set textbooks to allow new highlights
+                    // TODO show user highlights and add event for set/update highlights
                     data.forEach(function(hl){
                         // console.log('hl == ', hl)
                     })

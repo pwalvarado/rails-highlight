@@ -3,7 +3,8 @@
     "@rails/webpacker": "3.5",
     "bootstrap": "4.0.0-beta",
     "jquery": "^3.3.1",
-    "popper.js": "^1.14.3"
+    "popper.js": "^1.14.3",
+    "texthighlighterjs": "^1.2.1"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0",
