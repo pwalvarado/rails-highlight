@@ -12,6 +12,14 @@ import 'bootstrap/dist/js/bootstrap';
 import 'texthighlighterjs/build/TextHighlighter.min';
 // console.log('Hello World from Webpacker')
 
+/**
+ * callback used only for testing purposes: demoing the challenge,
+ * @param {*} data
+ */
+function ajaxCallback(data) {
+    console.log('highlights inserted on DB ', data);
+}
+
 $(document).ready(function() {
     // console.log('Hello world!')
 
@@ -37,9 +45,16 @@ $(document).ready(function() {
                 // get serialized highlights
                 serialized[textbook.attr('id')] = hltr[textbook.attr('id')].serializeHighlights();
 
-                // TODO post serialized text
+                // post serialized text
+                $.ajax({
+                    url: "/users/" + user_id+ "/highlights/" + textbook.attr('id'),
+                    type: 'PUT',
+                    success: ajaxCallback,
+                    data: JSON.stringify({ "hightlights": encodeURIComponent(serialized[textbook.attr('id')]) }),
+                    dataType: "json",
+                });
 
-                // console.log( "Handler for .mouseup() called." + serialized[textbook.attr('id')] );
+                // console.log( "Handler for .mouseup() called.\n" + serialized[textbook.attr('id')] );
             });
         });
 
