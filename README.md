@@ -36,3 +36,14 @@ rake db:test:load
 ```
 
 Load the app by running `rails server` on the command line and visiting `localhost:3000` in your browser.
+
+How to check the highlighter feature
+====================================
+
+- When visiting the root page, select a user from select box in the right top in your browser
+
+- start selecting text with the mouse
+
+- selected text is shown in yellow color
+
+- if another user is selected then highlighted text will be shown
