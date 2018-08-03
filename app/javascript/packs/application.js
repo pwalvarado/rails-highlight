@@ -17,7 +17,56 @@ import 'texthighlighterjs/build/TextHighlighter.min';
  * @param {*} data
  */
 function ajaxCallback(data) {
-    console.log('highlights inserted on DB ', data);
+    // console.log('highlights inserted on DB ', data);
+}
+
+/**
+ * Ajax call for getting user highlights
+ * @param {*} user_id
+ * @param {*} callback
+ */
+function getUserHls(user_id, callback){
+    $.getJSON("/users/" + user_id + "/highlights.json", function(data) {
+
+        // console.log('data====', data);
+        if (data.error) {
+            console.log('data.error', data.error);
+            callback(data.error);
+        } else {
+            if (data.lenght === 0) {
+                console.log('no highlights were found')
+                callback();
+            } else {
+                return callback(null, data);
+            }
+        }
+    });
+}
+
+/**
+ * Bind ajax call for saving highlights on mouseup event
+ * @param {*} bookId
+ * @param {*} userId
+ * @param {*} highlighter
+ */
+function bindHandlerToSaveBookHlgs(bookId, userId, highlighter){
+    $(".page").mouseup(function() {
+
+        // get serialized highlights
+        var serialized = highlighter[bookId].serializeHighlights();
+        // console.log('serialized ', serialized);
+
+        // post serialized text
+        $.ajax({
+            url: "/users/" + userId+ "/highlights/" + bookId,
+            type: 'PUT',
+            success: ajaxCallback,
+            data: JSON.stringify({ "hightlights": encodeURIComponent(serialized) }),
+            dataType: "json",
+        });
+
+        // console.log( "Handler for .mouseup() called.\n" + serialized );
+    });
 }
 
 $(document).ready(function() {
@@ -28,55 +77,46 @@ $(document).ready(function() {
 
     // When user is selected, retrieve and show highlights, and allow do new highlights
     $('#select-user').on('change', function () {
+        $( ".page").unbind( "mouseup" );
+        if (Object.keys(hltr).length > 0){
+            Object.keys(hltr).forEach(function(key){hltr[key].removeHighlights();})
+            hltr = {};
+        }
+
         var user_id = $('#select-user').val();
+        if (!user_id) return
 
         // console.log("selected user_id", user_id)
 
         // set highlighter for each book and bind related event handlers
         $('.text-book').each(function() {
-            var textbook = $(this);
+            var book = {
+                id: $(this).attr('id'),
+                container: $(this)[0]
+            }
 
             // set highlights object for each book.
-            hltr[textbook.attr('id')] = new TextHighlighter(textbook[0]);
+            hltr[book.id] = new TextHighlighter(book.container);
 
             // bind handler for hightligher, for getting and saving the text-book highlights
-            $("body").mouseup(function() {
+            bindHandlerToSaveBookHlgs(book.id, user_id, hltr, serialized);
+        });
 
-                // get serialized highlights
-                serialized[textbook.attr('id')] = hltr[textbook.attr('id')].serializeHighlights();
+        // get user highlighted text for each book, and paint it..
+        getUserHls(user_id, function(error, data) {
+            if (data) {
+                data.forEach(function(hl){
+                    // console.log('hightlights',decodeURIComponent(hl.hightlights));
+                    hltr[hl.page_id].removeHighlights();
 
-                // post serialized text
-                $.ajax({
-                    url: "/users/" + user_id+ "/highlights/" + textbook.attr('id'),
-                    type: 'PUT',
-                    success: ajaxCallback,
-                    data: JSON.stringify({ "hightlights": encodeURIComponent(serialized[textbook.attr('id')]) }),
-                    dataType: "json",
-                });
-
-                // console.log( "Handler for .mouseup() called.\n" + serialized[textbook.attr('id')] );
-            });
+                    var decodedHl = decodeURIComponent(hl.hightlights).replace(/\+/g, ' ');
+                    if (decodedHl.length > 2) {
+                        hltr[hl.page_id].deserializeHighlights(decodedHl);
+                    }
+                })
+            }
         });
 
         // console.log('hltr for text-book 1 ---------', hltr[1]);
-
-        // getting user highlights
-        $.getJSON("/users/" + user_id + "/highlights.json", function(data) {
-
-            // console.log('data====', data);
-            if (data.error) {
-                console.log('data.error', data.error);
-            } else {
-                if (data.lenght === 0) {
-                    console.log('no highlights were found')
-                } else {
-
-                    // TODO show user highlights and add event for set/update highlights
-                    data.forEach(function(hl){
-                        // console.log('hl == ', hl)
-                    })
-                }
-            }
-        });
     });
 });

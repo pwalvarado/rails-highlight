@@ -9,7 +9,7 @@
     </ul>
     <form class="form-inline mt-2 mt-md-0">
       <select id="select-user" class="custom-select">
-        <option selected>Choose a user</option>
+        <option value="" selected>Choose a user</option>
         <%= options_for_select(@users.collect {|p| [ p.name, p.id ] }) %>
       </select>
     </form>
